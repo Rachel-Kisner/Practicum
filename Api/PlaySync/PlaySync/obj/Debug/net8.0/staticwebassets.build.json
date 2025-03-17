@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "WJE4ga7vklzwwfv5GLLGLg+v60npsotlFQy3aOTkcsc=",
+  "Source": "PlaySyncApi",
+  "BasePath": "_content/PlaySyncApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,4 +1,5 @@
 ﻿using DL.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace BL.Validators
 {
     public class SongValidator
     {
+        private const long MaxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+        private static readonly string[] AllowedExtensions = { ".mp3", ".wav", ".flac" };
+
         /// <summary>
         ///check if song is valid
         /// </summary>
@@ -29,9 +33,36 @@ namespace BL.Validators
             if (string.IsNullOrWhiteSpace(song.CloudinaryUrl))
                 throw new ArgumentException("CloudinaryUrl name cant be empty.");
 
+            if(string.IsNullOrWhiteSpace(song.BackupUrl))
+                throw new ArgumentException("BackUrl name cant be empty.");
+
             if (song.UserId <= 0)
                 throw new ArgumentException("user id is not valid.");
         }
 
+        /// <summary>
+        /// check if file is valid
+        /// </summary>
+        /// <param name="file"></param>
+        /// <exception cref="ArgumentException"></exception>
+
+        public static bool ValidateFile(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("Invalid file.");
+
+            var fileExtension = System.IO.Path.GetExtension(file.FileName).ToLower();
+            if (!AllowedExtensions.Contains(fileExtension))
+            {
+                throw new ArgumentException("Invalid file type. Only audio files are allowed.");
+            }
+
+            if (file.Length > MaxFileSize)
+            {
+                throw new ArgumentException("File size exceeds the maximum limit of 5MB.");
+            }
+            return true;
+        }
+      
     }
 }

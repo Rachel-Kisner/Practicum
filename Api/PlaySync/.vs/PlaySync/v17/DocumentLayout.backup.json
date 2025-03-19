@@ -1,94 +1,98 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user1\\Documents\\PlaySync\\",
+  "WorkspaceRootPath": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\songservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\songservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\bl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\bl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\playlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\playlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\validators\\cloudinaryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\cloudinaryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\entities\\cloudinarysettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\cloudinarysettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\entities\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\entities\\playlistsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\playlistsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\entities\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\playsync\\bl\\playlistsongservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\songservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\songservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\validators\\songvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\songvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\filters\\fileuploadoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\filters\\fileuploadoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\playlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\playlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\playlistsongservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\playlistsongservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\cloudinarysettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\cloudinarysettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\validators\\cloudinaryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\cloudinaryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\bl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\bl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\playlistsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\playlistsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\playsync\\dl\\dl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\dl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\dl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\playsyncapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\playsyncapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\playsyncapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\playsync\\playsync\\filters\\fileuploadoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\filters\\fileuploadoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,17 +102,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\EmailService.cs",
               "RelativeDocumentMoniker": "BL\\EmailService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\EmailService.cs",
-              "RelativeToolTip": "BL\\EmailService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAzwB8AAAArAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\EmailService.cs*",
+              "RelativeToolTip": "BL\\EmailService.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T20:44:50.271Z",
               "IsPinned": true,
@@ -120,60 +124,191 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\UserService.cs",
+              "RelativeDocumentMoniker": "BL\\UserService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\UserService.cs*",
+              "RelativeToolTip": "BL\\UserService.cs*",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAmwKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T17:00:37.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SongController.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\SongController.cs",
+              "RelativeDocumentMoniker": "PlaySync\\Controllers\\SongController.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\SongController.cs*",
+              "RelativeToolTip": "PlaySync\\Controllers\\SongController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T16:36:43.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SongValidator.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\SongValidator.cs",
+              "RelativeDocumentMoniker": "BL\\Validators\\SongValidator.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\SongValidator.cs*",
+              "RelativeToolTip": "BL\\Validators\\SongValidator.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T20:51:58.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SongService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\SongService.cs",
+              "RelativeDocumentMoniker": "BL\\SongService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\SongService.cs*",
+              "RelativeToolTip": "BL\\SongService.cs*",
+              "ViewState": "AgIAAPcAAAAAAAAAAAD4vwQBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T17:01:17.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "DL\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\User.cs",
+              "RelativeToolTip": "DL\\Entities\\User.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA0wCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T16:45:04.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "PlaySync\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\UserController.cs*",
+              "RelativeToolTip": "PlaySync\\Controllers\\UserController.cs*",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAkwAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T16:37:02.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FileUploadOperationFilter.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Filters\\FileUploadOperationFilter.cs",
+              "RelativeDocumentMoniker": "PlaySync\\Filters\\FileUploadOperationFilter.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Filters\\FileUploadOperationFilter.cs",
+              "RelativeToolTip": "PlaySync\\Filters\\FileUploadOperationFilter.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T19:22:11.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PlaylistService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\PlaylistService.cs",
+              "RelativeDocumentMoniker": "BL\\PlaylistService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\PlaylistService.cs*",
+              "RelativeToolTip": "BL\\PlaylistService.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T19:37:00.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlaylistSongService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\PlaylistSongService.cs",
+              "RelativeDocumentMoniker": "BL\\PlaylistSongService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\PlaylistSongService.cs",
+              "RelativeToolTip": "BL\\PlaylistSongService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T20:02:30.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CloudinaryService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\CloudinaryService.cs",
+              "RelativeDocumentMoniker": "BL\\CloudinaryService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\CloudinaryService.cs",
+              "RelativeToolTip": "BL\\CloudinaryService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T23:09:49.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UserValidator.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\Validators\\UserValidator.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\UserValidator.cs",
               "RelativeDocumentMoniker": "BL\\Validators\\UserValidator.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\Validators\\UserValidator.cs*",
-              "RelativeToolTip": "BL\\Validators\\UserValidator.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\UserValidator.cs",
+              "RelativeToolTip": "BL\\Validators\\UserValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T20:10:48.03Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CloudinaryService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\CloudinaryService.cs",
-              "RelativeDocumentMoniker": "BL\\CloudinaryService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\CloudinaryService.cs",
-              "RelativeToolTip": "BL\\CloudinaryService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB8AAAA2AAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "CloudinarySettings.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\CloudinarySettings.cs",
+              "RelativeDocumentMoniker": "DL\\Entities\\CloudinarySettings.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\CloudinarySettings.cs",
+              "RelativeToolTip": "DL\\Entities\\CloudinarySettings.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T23:09:49.716Z"
+              "WhenOpened": "2025-03-11T23:16:29.666Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\UserService.cs",
-              "RelativeDocumentMoniker": "BL\\UserService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\UserService.cs",
-              "RelativeToolTip": "BL\\UserService.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAuwG0AAABZAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "CloudinaryValidator.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\CloudinaryValidator.cs",
+              "RelativeDocumentMoniker": "BL\\Validators\\CloudinaryValidator.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\CloudinaryValidator.cs",
+              "RelativeToolTip": "BL\\Validators\\CloudinaryValidator.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA+wA8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T17:00:37.537Z"
+              "WhenOpened": "2025-03-16T19:59:30.947Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SongService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\SongService.cs",
-              "RelativeDocumentMoniker": "BL\\SongService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\SongService.cs",
-              "RelativeToolTip": "BL\\SongService.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAD4v1QAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "Song.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\Song.cs",
+              "RelativeDocumentMoniker": "DL\\Entities\\Song.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\Song.cs",
+              "RelativeToolTip": "DL\\Entities\\Song.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswB4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T17:01:17.167Z"
+              "WhenOpened": "2025-03-09T16:46:00.918Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 15,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\appsettings.json",
               "RelativeDocumentMoniker": "PlaySync\\appsettings.json",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\appsettings.json",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\appsettings.json",
               "RelativeToolTip": "PlaySync\\appsettings.json",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -181,35 +316,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PlaylistService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\PlaylistService.cs",
-              "RelativeDocumentMoniker": "BL\\PlaylistService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\PlaylistService.cs",
-              "RelativeToolTip": "BL\\PlaylistService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T19:37:00.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CloudinaryValidator.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\Validators\\CloudinaryValidator.cs",
-              "RelativeDocumentMoniker": "BL\\Validators\\CloudinaryValidator.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\Validators\\CloudinaryValidator.cs",
-              "RelativeToolTip": "BL\\Validators\\CloudinaryValidator.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwA4AAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T19:59:30.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "BL.csproj",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\BL.csproj",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\BL.csproj",
               "RelativeDocumentMoniker": "BL\\BL.csproj",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\BL.csproj",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\BL.csproj",
               "RelativeToolTip": "BL\\BL.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -217,35 +328,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CloudinarySettings.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\CloudinarySettings.cs",
-              "RelativeDocumentMoniker": "DL\\Entities\\CloudinarySettings.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\CloudinarySettings.cs",
-              "RelativeToolTip": "DL\\Entities\\CloudinarySettings.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAiwA4AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T23:16:29.666Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "DL\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\User.cs",
-              "RelativeToolTip": "DL\\Entities\\User.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwCYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T16:45:04.03Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "DL\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\ApplicationDbContext.cs",
               "RelativeToolTip": "DL\\ApplicationDbContext.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -253,11 +340,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "PlayList.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\PlayList.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\PlayList.cs",
               "RelativeDocumentMoniker": "DL\\Entities\\PlayList.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\PlayList.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\PlayList.cs",
               "RelativeToolTip": "DL\\Entities\\PlayList.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAmwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -265,11 +352,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "PlaylistSong.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\PlaylistSong.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\PlaylistSong.cs",
               "RelativeDocumentMoniker": "DL\\Entities\\PlaylistSong.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\PlaylistSong.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\PlaylistSong.cs",
               "RelativeToolTip": "DL\\Entities\\PlaylistSong.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAUwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -277,59 +364,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Song.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\Song.cs",
-              "RelativeDocumentMoniker": "DL\\Entities\\Song.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\Entities\\Song.cs",
-              "RelativeToolTip": "DL\\Entities\\Song.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAqwCQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T16:46:00.918Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SongController.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Controllers\\SongController.cs",
-              "RelativeDocumentMoniker": "PlaySync\\Controllers\\SongController.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Controllers\\SongController.cs",
-              "RelativeToolTip": "PlaySync\\Controllers\\SongController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAqwCUAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T16:36:43.122Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "PlaySync\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Controllers\\UserController.cs",
-              "RelativeToolTip": "PlaySync\\Controllers\\UserController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwCkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T16:37:02.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "PlaylistSongService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\PlaylistSongService.cs",
-              "RelativeDocumentMoniker": "BL\\PlaylistSongService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\BL\\PlaylistSongService.cs",
-              "RelativeToolTip": "BL\\PlaylistSongService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCYAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T20:02:30.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs",
               "RelativeDocumentMoniker": "PlaySync\\Program.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Program.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs",
               "RelativeToolTip": "PlaySync\\Program.cs",
               "ViewState": "AgIAABgAAAAAAAAAAIBJwAoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -337,11 +376,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "PlaySyncApi.csproj",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\PlaySyncApi.csproj",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\PlaySyncApi.csproj",
               "RelativeDocumentMoniker": "PlaySync\\PlaySyncApi.csproj",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\PlaySyncApi.csproj",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\PlaySyncApi.csproj",
               "RelativeToolTip": "PlaySync\\PlaySyncApi.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -349,27 +388,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "DL.csproj",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\DL.csproj",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\DL.csproj",
               "RelativeDocumentMoniker": "DL\\DL.csproj",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\DL\\DL.csproj",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\DL.csproj",
               "RelativeToolTip": "DL\\DL.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-03-09T16:44:37.422Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "FileUploadOperationFilter.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Filters\\FileUploadOperationFilter.cs",
-              "RelativeDocumentMoniker": "PlaySync\\Filters\\FileUploadOperationFilter.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\PlaySync\\PlaySync\\Filters\\FileUploadOperationFilter.cs",
-              "RelativeToolTip": "PlaySync\\Filters\\FileUploadOperationFilter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBZwAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T19:22:11.062Z"
             }
           ]
         }

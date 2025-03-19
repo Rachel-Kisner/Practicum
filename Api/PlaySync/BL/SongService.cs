@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.ComponentModel;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BL
 {
@@ -26,75 +27,128 @@ namespace BL
             _cloudinary = cloudinary;
             _logger = logger;
         }
-        private async Task<string> UploadFileToCloudinary(IFormFile file)
-        {
-            var uploadParams = new RawUploadParams
-            {
-                File = new FileDescription(file.FileName, file.OpenReadStream()),
-                Folder = "music_files"
-            };
-            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
-            if (uploadResult?.SecureUrl == null)
-            {
-                _logger.LogError("Upload failed: SecureUrl is null");
-                throw new Exception("Upload failed, SecureUrl is null.");
-            }
-            return uploadResult.SecureUrl.AbsoluteUri;
-        }
 
-        public async Task<Song?> UploadSongAsync(IFormFile file, string title, string artist, string genre, int userId)
+        private async Task<string?> BackupSongToCloudinaryAsync(IFormFile file)
+        {
+            return await ExecuteSafeAsync(async () =>
+            {
+                using var stream = file.OpenReadStream();
+                var uploadParams = new RawUploadParams
+                {
+                    File = new FileDescription(file.FileName, stream),
+                    Folder = "music_backups"
+                };
+
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                if (uploadResult?.SecureUrl == null)
+                {
+                    _logger.LogError("Backup upload failed: SecureUrl is null");
+                    throw new Exception("Backup upload failed, SecureUrl is null.");
+                }
+
+                return uploadResult.SecureUrl.AbsoluteUri;
+            });
+        }
+        public async Task<string?> UploadFileToCloudinaryAsync(IFormFile file)
+        {
+            return await ExecuteSafeAsync(async () =>
+            {
+                using var stream = file.OpenReadStream();
+                var uploadParams = new RawUploadParams
+                {
+                    File = new FileDescription(file.FileName, stream),
+                    Folder = "music_files"
+                };
+
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                if (uploadResult?.SecureUrl == null)
+                {
+                    _logger.LogError("Upload failed: SecureUrl is null");
+                    throw new Exception("Upload failed, SecureUrl is null.");
+                }
+                return uploadResult.SecureUrl.AbsoluteUri;
+            });
+        }
+        private async Task<T?> ExecuteSafeAsync<T>(Func<Task<T>> action)
         {
             try
             {
-                if (file == null || file.Length == 0)
-                    throw new ArgumentException("Invalid file.");
+                return await action();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error occurred: {ex.Message}");
+                throw;
+            }
+        }
+        private async Task ExecuteSafeAsync(Func<Task> action)
+        {
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error occurred: {ex.Message}");
+                throw;
+            }
+        }
 
-                var cloudinaryUrl = await UploadFileToCloudinary(file);
 
+        
+        public async Task<Song?> UploadSongAsync(IFormFile file, string title, string artist, string genre, int userId)
+        {
+            return await ExecuteSafeAsync(async () =>
+            {
+                SongValidator.ValidateFile(file);
+                var cloudinaryUrl = await UploadFileToCloudinaryAsync(file);
+                var backupUrl = await BackupSongToCloudinaryAsync(file);
                 var song = new Song
                 {
                     Title = title,
                     Artist = artist,
                     Genre = genre,
-                    CloudinaryUrl = cloudinaryUrl,
+                    CloudinaryUrl = cloudinaryUrl ?? string.Empty,
+                    BackupUrl = backupUrl ?? string.Empty,
                     UserId = userId
                 };
-
                 SongValidator.ValidateSong(song);
                 _context.Songs.Add(song);
                 await _context.SaveChangesAsync();
                 return song;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error uploading song:{ex.Message}");
-                return null;
-            }
+            });
         }
 
-        public async Task<Song?> AddSongAsync(Song song)
+        
+
+        public async Task<Song?> AddSongAsync(Song song)//adding without keeping in the cloud
         {
-            try
+           
+            return await ExecuteSafeAsync(async () =>
             {
                 SongValidator.ValidateSong(song);
                 _context.Songs.Add(song);
                 await _context.SaveChangesAsync();
                 return song;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error validating song: {ex.Message}"); return null;
-            }
+            });
+            
+            
         }
 
-        public async Task<bool> DeleteSongAsync(int songId)
+        public async Task DeleteSongAsync(int songId, int userId, bool isAdmin)
         {
-            try
+            await ExecuteSafeAsync(async () =>
             {
                 var song = await _context.Songs.FindAsync(songId);
                 if (song == null)
-                    return false;
+                 throw new ArgumentException("Song not found.");
 
+                if (song.UserId != userId && !isAdmin)
+                {
+
+                    _logger.LogWarning($"Unauthorized delete attempt by UserId {userId}");
+                    throw new UnauthorizedAccessException("You are not authorized to delete this song.");
+                }
                 if (!string.IsNullOrEmpty(song.CloudinaryPublicId))
                 {
                     var deletionParams = new DeletionParams(song.CloudinaryPublicId);
@@ -104,31 +158,31 @@ namespace BL
                         _logger.LogWarning($"Failed to delete file from Cloudinary: {result.Result}");
                     }
                 }
+                if (!string.IsNullOrEmpty(song.BackupUrl))
+                {
+                    var deleteParams = new DeletionParams(song.BackupUrl);
+                    var backupDeleteParams = await _cloudinary.DestroyAsync(deleteParams);
+                    if (backupDeleteParams.Result != "ok")
+                    {
+                        _logger.LogWarning($"Failed to delete file from Cloudinary: {backupDeleteParams.Result}");
+                    }
+                }
                 _context.Songs.Remove(song);
                 await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error deleting song: {ex.Message}");
-                return false;
-            }
+            });
+            
         }
 
-        public async Task<Song?> GetSongBySongIdAsync(int songId)
-        {
-            try
-            {
-                return await _context.Songs.Include(s => s.User)
-              .FirstOrDefaultAsync(s => s.Id == songId);
-            }
 
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error fetching song: {ex.Message}");
-                return null;
-            }
-        }
+
+        public Task<Song?> GetSongBySongIdAsync(int songId) =>
+        ExecuteSafeAsync(() =>
+           _context.Songs.Include(s => s.User)
+            .FirstOrDefaultAsync(s => s.Id == songId)
+           );
+
+
+
 
         public async Task<List<Song>> GetAllSongsAsync()
         {
@@ -145,15 +199,19 @@ namespace BL
 
         public async Task<Song?> UpdateSongAsync(int songId, string title, string artist, string genre, IFormFile file)
         {
-            try
+            return await ExecuteSafeAsync(async () =>
             {
-                var song = await _context.Songs.FindAsync(songId);
-                if (song == null)
-                    return null;
 
-                if (file != null)
+                var song = await _context.Songs.FindAsync(songId);
+
+                if (SongValidator.ValidateFile(file))
                 {
-                    await _cloudinary.DestroyAsync(new DeletionParams(song.CloudinaryPublicId));
+                    
+                    var newBackupUrl = await BackupSongToCloudinaryAsync(file);
+                    if (!string.IsNullOrEmpty(song.CloudinaryPublicId))
+                    {
+                        await _cloudinary.DestroyAsync(new DeletionParams(song.CloudinaryPublicId));
+                    }
                     var uploadParams = new RawUploadParams
                     {
                         File = new FileDescription(file.FileName, file.OpenReadStream()),
@@ -163,31 +221,29 @@ namespace BL
 
                     if (uploadResult?.SecureUrl == null)
                     {
-                        _logger.LogError("Update failed: SecureUrl is null");
                         throw new Exception("Update failed, SecureUrl is null.");
                     }
                     song.CloudinaryUrl = uploadResult.SecureUrl.ToString();
                     song.CloudinaryPublicId = uploadResult.PublicId;
+                    song.BackupUrl = newBackupUrl;
+                    song.Title = title;
+                    song.Artist = artist;
+                    song.Genre = genre;
+                    song.UpdatedAt = DateTime.UtcNow;
+                    SongValidator.ValidateSong(song);
+                    _context.Songs.Update(song);
                 }
-
-                song.Title = title;
-                song.Artist = artist;
-                song.Genre = genre;
-                song.UpdatedAt = DateTime.UtcNow;
-                SongValidator.ValidateSong(song);
-                _context.Songs.Update(song);
+               
                 await _context.SaveChangesAsync();
                 return song;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error updating song: {ex.Message}");
-                return null;
-            }
+            });
         }
 
         public async Task<IEnumerable<Song>> SearchSongsAsync(string query)
         {
+            if (string.IsNullOrWhiteSpace(query))
+                return new List<Song>();
+
             try
             {
                 return await _context.Songs.Where(s => s.Title.ToLower().Contains(query.ToLower())

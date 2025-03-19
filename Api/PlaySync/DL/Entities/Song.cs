@@ -14,6 +14,7 @@ namespace DL.Entities
         public string Genre { get; set; } = string.Empty;
         public int UserId { get; set; }
         public User User { get; set; }
+        public string BackupUrl { get; set; } = string.Empty;
         public ICollection<PlaylistSong>? PlaylistSongs { get; set; }
         public string CloudinaryUrl { get; set; } = string.Empty;
         public string CloudinaryPublicId { get; set; } = string.Empty;

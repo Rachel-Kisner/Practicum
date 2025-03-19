@@ -17,7 +17,7 @@ namespace BL
 
         private readonly string _smtpServer = "smtp.gmail.com"; // שרת SMTP של Gmail (או אחר)
         private readonly int _smtpPort = 587;
-        private readonly string _smtpUser = "your-email@gmail.com"; // כתובת המייל שלך
+        private readonly string _smtpUser = "rachel8508773@gmail.com"; // כתובת המייל שלך
         private readonly string _smtpPass = "your-app-password"; // סיסמת אפליקציה (לא סיסמה רגילה!)
 
         public async Task SendEmailAsync(string toEmail, string subject, string body)

@@ -4,6 +4,7 @@ using DL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Crypto.Generators;
 using BL.Validators;
+using Microsoft.Extensions.Logging;
 
 
 namespace BL
@@ -11,10 +12,48 @@ namespace BL
     public class UserService
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UserService> _logger;
 
-        public UserService(ApplicationDbContext context)
+        public UserService(ApplicationDbContext context,ILogger<UserService> logger)
         {
             _context = context;
+            _logger = logger;
+        }
+
+
+
+        public async Task<User?> GetUserByIdAsync(bool admin,int userId)
+        {
+            if(!admin)return null;
+            return await _context.Users.
+                Include(u => u.Songs).
+                Include(u => u.Playlists).
+                FirstOrDefaultAsync(u => u.Id == userId);
+        }
+        public async Task<List<User>> GetUsersAsync(bool admin, string orderBy = "name")
+        {
+            try
+            {
+                if (!admin)
+                {
+                    throw new UnauthorizedAccessException("Only admins can access the user list.");
+                }
+                var query = _context.Users.AsQueryable();
+
+                query = orderBy.ToLower() switch
+                {
+                    "email" => query.OrderBy(u => u.Email),
+                    "created" => query.OrderBy(u => u.CreatedAt),
+                    _ => query.OrderBy(u => u.Name)
+                };
+
+                return await query.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
         public async Task<bool> CreateUserAsync(string name, string password, string email, Role role)
@@ -22,7 +61,6 @@ namespace BL
 
             UserValidator.ValidateUserInput(name, email, password);
             await UserValidator.ValidateUniqueEmailAsync(_context, email);
-            // הצפנת הסיסמה לפני שמירה
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
             var user = new User
@@ -36,14 +74,6 @@ namespace BL
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return true;
-        }
-
-        public async Task<User> GetUserByIdAsync(int userId)
-        {
-            return await _context.Users.
-                Include(u => u.Songs).
-                Include(u => u.Playlists).
-                FirstOrDefaultAsync(u => u.Id == userId);
         }
 
         public async Task<User> UpdateUserByIdAsync(int userId, User updateUser)
@@ -60,7 +90,7 @@ namespace BL
                 user.Email = updateUser.Email;
             }
             user.Role = updateUser.Role;
-            user.UpdatedAt = DateTime.UtcNow;  // עדכון שדה UpdatedAt
+            user.UpdatedAt = DateTime.UtcNow;  
             _context.Users.Update(user);
             _context.SaveChanges();
 
@@ -122,21 +152,11 @@ namespace BL
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<List<User>> GetUsersAsync(string orderBy = "name")
-        {
-            var query = _context.Users.AsQueryable();
 
-            query = orderBy.ToLower() switch
-            {
-                "email" => query.OrderBy(u => u.Email),
-                "created" => query.OrderBy(u => u.CreatedAt),
-                _ => query.OrderBy(u => u.Name)
-            };
-
-            return await query.ToListAsync();
-        }
-        public async Task<bool> ChangeUserRoleAsync(int userId, Role newRole)
+        public async Task<bool> ChangeUserRoleAsync(bool admin,int userId, Role newRole)
         {
+
+            if (!admin) return false;
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
                 return false;

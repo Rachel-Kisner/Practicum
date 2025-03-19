@@ -39,7 +39,7 @@ namespace BL
             await _context.SaveChangesAsync();
         }
 
-        public async Task<PlayList>GetPlayListByIdAsync(int playlistId)
+        public async Task<PlayList?>GetPlayListByIdAsync(int playlistId)
         {
             return await _context.Playlists
                 .Include(p => p.PlaylistSongs)
@@ -47,7 +47,7 @@ namespace BL
                 .FirstOrDefaultAsync(p => p.Id == playlistId);
         }
 
-        public async Task<PlayList>UpdateplaylistAsync(int playlistId,PlayList updatePlaylist)
+        public async Task<PlayList?>UpdateplaylistAsync(int playlistId,PlayList updatePlaylist)
         {
             var playlist =await _context.Playlists.FindAsync(playlistId);
             if (playlist != null) 

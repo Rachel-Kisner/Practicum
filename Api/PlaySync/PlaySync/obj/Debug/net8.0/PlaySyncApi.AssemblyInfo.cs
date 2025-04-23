@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ffdeee51-ccaf-4b94-b110-0e0cba3713b3")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlaySyncApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4930430f6e407ebcdd6e99c9abcdf727c10a1b0f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a2c0a559f5c2b6bc8d58e9a8bb3aff2a4bf59d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlaySyncApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlaySyncApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

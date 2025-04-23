@@ -72,14 +72,14 @@ namespace PlaySyncApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-       
+
         [HttpPost("upload")]
-        public async Task<IActionResult> UploadSong([FromForm] IFormFile file, [FromForm] string title, [FromForm] string artist, [FromForm] string genre, [FromForm] int userId)
+        public async Task<IActionResult> UploadSong([FromForm] SongUploadDto request)
         {
             try
             {
 
-                var song = await _songService.UploadSongAsync(file, title, artist, genre, userId);
+                var song = await _songService.UploadSongAsync(request.File, request.Title, request.Artist, request.Genre, request.UserId);
                 return Ok(song);
             }
             catch (Exception ex)
@@ -87,11 +87,13 @@ namespace PlaySyncApi.Controllers
         }
 
         [HttpPut("{songId}")]
-        public async Task<IActionResult> UpdateSong(int songId, [FromForm] string title, [FromForm] string artist, [FromForm] string genre, [FromForm] IFormFile file)
+
+
+        public async Task<IActionResult> UpdateSong(int songId, [FromBody] SongRequestDto dto)
         {
             try
             {
-                var song = await _songService.UpdateSongAsync(songId, title, artist, genre, file);
+                var song = await _songService.UpdateSongAsync(songId, dto);
                 return song != null ? Ok(song) : NotFound();
             }
             catch (Exception ex)

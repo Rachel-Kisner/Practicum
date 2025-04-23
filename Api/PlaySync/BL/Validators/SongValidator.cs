@@ -19,25 +19,25 @@ namespace BL.Validators
         public static void ValidateSong(Song song)
         {
             if (song == null)
-                throw new ArgumentException("song cannot be null.");
+                throw new ArgumentException("Song can't be null.");
 
             if (string.IsNullOrWhiteSpace(song.Title))
-                throw new ArgumentException("song name cant be empty");
+                throw new ArgumentException("Song name can't be empty");
 
             if (string.IsNullOrWhiteSpace(song.Artist))
-                throw new ArgumentException("Artist name cant be empty.");
+                throw new ArgumentException("Artist name can't be empty.");
 
             if (string.IsNullOrWhiteSpace(song.Genre))
-                throw new ArgumentException("zaner name cant be empty.");
+                throw new ArgumentException("Genre name can't be empty.");
 
             if (string.IsNullOrWhiteSpace(song.CloudinaryUrl))
                 throw new ArgumentException("CloudinaryUrl name cant be empty.");
 
             if(string.IsNullOrWhiteSpace(song.BackupUrl))
-                throw new ArgumentException("BackUrl name cant be empty.");
+                throw new ArgumentException("Backup URL can't be empty.");
 
             if (song.UserId <= 0)
-                throw new ArgumentException("user id is not valid.");
+                throw new ArgumentException("User id is not valid.");
         }
 
         /// <summary>

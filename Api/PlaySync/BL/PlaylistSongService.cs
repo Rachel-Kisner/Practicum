@@ -26,13 +26,17 @@ namespace BL
 
         public async Task AddSongToPlaylistAsync(int playlistId,int songId)
         {
-            var playlistSong = new PlaylistSong
-            {
-                PlaylistId = playlistId,
-                SongId = songId
-            };
-            _context.PlaylistSongs.Add(playlistSong);
-            await _context.SaveChangesAsync();
+            
+                var playlistSong = new PlaylistSong
+                {
+                    PlaylistId = playlistId,
+                    SongId = songId
+                };
+
+                _context.PlaylistSongs.Add(playlistSong);
+                await _context.SaveChangesAsync();
+            
+            
 
         }
 

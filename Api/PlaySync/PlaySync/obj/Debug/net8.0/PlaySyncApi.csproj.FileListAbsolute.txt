@@ -403,3 +403,12 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\refint
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.pdb
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.genruntimeconfig.cache
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\ref\PlaySyncApi.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\web.config
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\appsettings.Development.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\appsettings.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.deps.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.runtimeconfig.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.staticwebassets.endpoints.json

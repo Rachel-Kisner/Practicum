@@ -95,7 +95,7 @@ namespace BL
         }
 
 
-        
+
         public async Task<Song?> UploadSongAsync(IFormFile file, string title, string artist, string genre, int userId)
         {
             return await ExecuteSafeAsync(async () =>
@@ -119,11 +119,11 @@ namespace BL
             });
         }
 
-        
+
 
         public async Task<Song?> AddSongAsync(Song song)//adding without keeping in the cloud
         {
-           
+
             return await ExecuteSafeAsync(async () =>
             {
                 SongValidator.ValidateSong(song);
@@ -131,8 +131,8 @@ namespace BL
                 await _context.SaveChangesAsync();
                 return song;
             });
-            
-            
+
+
         }
 
         public async Task DeleteSongAsync(int songId, int userId, bool isAdmin)
@@ -141,7 +141,7 @@ namespace BL
             {
                 var song = await _context.Songs.FindAsync(songId);
                 if (song == null)
-                 throw new ArgumentException("Song not found.");
+                    throw new ArgumentException("Song not found.");
 
                 if (song.UserId != userId && !isAdmin)
                 {
@@ -170,7 +170,7 @@ namespace BL
                 _context.Songs.Remove(song);
                 await _context.SaveChangesAsync();
             });
-            
+
         }
 
 
@@ -197,24 +197,29 @@ namespace BL
             }
         }
 
-        public async Task<Song?> UpdateSongAsync(int songId, string title, string artist, string genre, IFormFile file)
+
+
+        public async Task<Song?> UpdateSongAsync(int songId, SongRequestDto dto)
         {
             return await ExecuteSafeAsync(async () =>
             {
 
                 var song = await _context.Songs.FindAsync(songId);
+                
+                if (song != null&&song.UserId != dto.UserId)
+                    throw new UnauthorizedAccessException("No permition to update this song");
 
-                if (SongValidator.ValidateFile(file))
+                if (SongValidator.ValidateFile(dto.File))
                 {
-                    
-                    var newBackupUrl = await BackupSongToCloudinaryAsync(file);
+
+                    var newBackupUrl = await BackupSongToCloudinaryAsync(dto.File);
                     if (!string.IsNullOrEmpty(song.CloudinaryPublicId))
                     {
                         await _cloudinary.DestroyAsync(new DeletionParams(song.CloudinaryPublicId));
                     }
                     var uploadParams = new RawUploadParams
                     {
-                        File = new FileDescription(file.FileName, file.OpenReadStream()),
+                        File = new FileDescription(dto.File.FileName, dto.File.OpenReadStream()),
                         Folder = "music_files"
                     };
                     var uploadResult = await _cloudinary.UploadAsync(uploadParams);
@@ -226,14 +231,14 @@ namespace BL
                     song.CloudinaryUrl = uploadResult.SecureUrl.ToString();
                     song.CloudinaryPublicId = uploadResult.PublicId;
                     song.BackupUrl = newBackupUrl;
-                    song.Title = title;
-                    song.Artist = artist;
-                    song.Genre = genre;
+                    song.Title = dto.Title;
+                    song.Artist = dto.Artist;
+                    song.Genre = dto.Genre;
                     song.UpdatedAt = DateTime.UtcNow;
                     SongValidator.ValidateSong(song);
                     _context.Songs.Update(song);
                 }
-               
+
                 await _context.SaveChangesAsync();
                 return song;
             });

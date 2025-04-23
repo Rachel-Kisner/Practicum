@@ -10,9 +10,9 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # העתקת קבצי הפרויקטים מהשכבות
-COPY ../PlaySync/PlaySyncApi.csproj PlaySync/
-COPY ../BL/BL.csproj BL/
-COPY ../DL/DL.csproj DL/
+COPY PlaySync/PlaySyncApi.csproj PlaySync/
+COPY BL/BL.csproj BL/
+COPY DL/DL.csproj DL/
 
 # שחזור תלויות
 RUN dotnet restore PlaySync/PlaySyncApi.csproj

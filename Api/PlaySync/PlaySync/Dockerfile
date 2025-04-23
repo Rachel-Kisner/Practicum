@@ -1,36 +1,28 @@
-# שלב בסיסי להרצת האפליקציה
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
 
-# שלב בנייה
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
+# העתקת קבצי הפרויקט
+COPY BL/BL.csproj ./BL/
+COPY DL/DL.csproj ./DL/
+COPY PlaySyncApi/PlaySyncApi.csproj ./PlaySyncApi/
 
-# העתקת קבצי הפרויקטים מהשכבות
-COPY ../PlaySync/PlaySyncApi.csproj PlaySync/
-COPY ../BL/BL.csproj BL/
-COPY ../DL/DL.csproj DL/
+# שחזור תלויות (NuGet) עבור כל פרויקט בנפרד
+RUN dotnet restore ./BL/BL.csproj
+RUN dotnet restore ./DL/DL.csproj
+RUN dotnet restore ./PlaySyncApi/PlaySyncApi.csproj
 
-# שחזור תלויות
-RUN dotnet restore PlaySync/PlaySyncApi.csproj
+# העתקת כל קוד הפרויקט
+COPY BL ./BL/
+COPY DL ./DL/
+COPY PlaySyncApi ./PlaySyncApi/
 
-# העתקת שאר קבצי הקוד
-COPY .. .
+# פרסום האפליקציה - מציין את הפרויקט במפורש
+RUN dotnet publish ./PlaySyncApi/PlaySyncApi.csproj -c Release -o /app/out
 
-# בניית הפרויקט
-WORKDIR /src/PlaySync
-RUN dotnet build PlaySyncApi.csproj -c $BUILD_CONFIGURATION -o /app/build
-
-# שלב פרסום (Publish)
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish PlaySyncApi.csproj -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-# שלב הריצה הסופי
-FROM base AS final
+# ----------------------------------------------------------------------------------------------------
+# שלב 2: הפעלה (Runtime)
+# ----------------------------------------------------------------------------------------------------
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/out ./
 ENTRYPOINT ["dotnet", "PlaySyncApi.dll"]

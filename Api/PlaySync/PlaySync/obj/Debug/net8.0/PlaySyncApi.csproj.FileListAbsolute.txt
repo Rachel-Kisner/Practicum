@@ -385,7 +385,6 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySy
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.csproj.CoreCompileInputs.cache
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.sourcelink.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\scopedcss\bundle\PlaySyncApi.styles.css
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets.development.json

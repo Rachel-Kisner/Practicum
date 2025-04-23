@@ -4,20 +4,20 @@ WORKDIR /app
 # העתקת קבצי הפרויקט
 COPY BL/BL.csproj ./BL/
 COPY DL/DL.csproj ./DL/
-COPY PlaySyncApi/PlaySyncApi.csproj ./PlaySyncApi/
+COPY PlaySync/PlaySyncApi.csproj ./PlaySync/
 
 # שחזור תלויות (NuGet) עבור כל פרויקט בנפרד
 RUN dotnet restore ./BL/BL.csproj
 RUN dotnet restore ./DL/DL.csproj
-RUN dotnet restore ./PlaySyncApi/PlaySyncApi.csproj
+RUN dotnet restore ./PlaySync/PlaySyncApi.csproj
 
 # העתקת כל קוד הפרויקט
 COPY BL ./BL/
 COPY DL ./DL/
-COPY PlaySyncApi ./PlaySyncApi/
+COPY PlaySync ./PlaySync/
 
 # פרסום האפליקציה - מציין את הפרויקט במפורש
-RUN dotnet publish ./PlaySyncApi/PlaySyncApi.csproj -c Release -o /app/out
+RUN dotnet publish ./PlaySync/PlaySyncApi.csproj -c Release -o /app/out
 
 # ----------------------------------------------------------------------------------------------------
 # שלב 2: הפעלה (Runtime)

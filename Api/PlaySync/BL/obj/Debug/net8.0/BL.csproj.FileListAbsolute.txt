@@ -23,7 +23,6 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.Generated
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.AssemblyInfoInputs.cache
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.AssemblyInfo.cs
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.csproj.CoreCompileInputs.cache
-C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.sourcelink.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.csproj.Up2Date
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\refint\BL.dll

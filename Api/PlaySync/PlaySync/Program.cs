@@ -83,17 +83,18 @@ builder.Services.AddScoped<BL.PlaylistService>();
 
 var app = builder.Build(); 
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaySync API V1");
     });
-}
+//}
 app.UseHttpsRedirection();
 //app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGet("/", () => "Welcome to PlaySync API!");
 app.Run();

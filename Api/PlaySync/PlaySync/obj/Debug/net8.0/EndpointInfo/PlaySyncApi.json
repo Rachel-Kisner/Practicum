@@ -6,6 +6,25 @@
     "version": "v1"
   },
   "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "PlaySyncApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Song": {
       "get": {
         "tags": [
@@ -577,6 +596,9 @@
         "additionalProperties": false
       },
       "SongRequestDto": {
+        "required": [
+          "file"
+        ],
         "type": "object",
         "properties": {
           "userId": {

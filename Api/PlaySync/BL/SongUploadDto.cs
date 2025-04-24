@@ -15,7 +15,7 @@ namespace BL
         public string Genre { get; set; } = string.Empty;
 
         // הקובץ עצמו
-        public IFormFile File { get; set; }
+        public required IFormFile File { get; set; }
 
     }
 }

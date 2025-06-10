@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\validators\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,20 +43,12 @@
       "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E513297-8F84-40F1-A6D2-30EAE0027057}|DL\\DL.csproj|solutionrelative:dl\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|solutionrelative:playsync\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\bl\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4879EF9-111D-41A8-AE59-3C7E34BF7AD4}|BL\\BL.csproj|solutionrelative:bl\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4474FC1-5F42-44AB-A3C3-949384B04C02}|PlaySync\\PlaySyncApi.csproj|c:\\users\\user1\\documents\\practicum\\api\\playsync\\playsync\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -185,11 +185,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\EmailService.cs",
               "RelativeDocumentMoniker": "BL\\EmailService.cs",
@@ -206,44 +206,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "PlaySync\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\UserController.cs",
               "RelativeToolTip": "PlaySync\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACYBAAAAAAAAAAAcwDABAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T16:37:02.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "JwtTokenService.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\JwtTokenService.cs",
-              "RelativeDocumentMoniker": "BL\\JwtTokenService.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\JwtTokenService.cs",
-              "RelativeToolTip": "BL\\JwtTokenService.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAkwBkAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T14:08:30.824Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\UserService.cs",
               "RelativeDocumentMoniker": "BL\\UserService.cs",
               "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\UserService.cs",
               "RelativeToolTip": "BL\\UserService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAEwEYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAYwNwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T17:00:37.537Z"
+              "WhenOpened": "2025-03-09T17:00:37.537Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs",
+              "RelativeDocumentMoniker": "PlaySync\\Program.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs*",
+              "RelativeToolTip": "PlaySync\\Program.cs*",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwEoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T17:50:54.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UserValidator.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\Validators\\UserValidator.cs",
               "RelativeDocumentMoniker": "BL\\Validators\\UserValidator.cs",
@@ -255,19 +257,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs",
-              "RelativeDocumentMoniker": "PlaySync\\Program.cs",
-              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Program.cs",
-              "RelativeToolTip": "PlaySync\\Program.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAowIwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "BL\\JwtTokenService.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\JwtTokenService.cs",
+              "RelativeToolTip": "BL\\JwtTokenService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAkwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T17:50:54.337Z"
+              "WhenOpened": "2025-05-08T14:08:30.824Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\User.cs",
               "RelativeDocumentMoniker": "DL\\Entities\\User.cs",
@@ -279,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "RegisterUserDto.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\RegisterUserDto.cs",
               "RelativeDocumentMoniker": "DL\\Entities\\RegisterUserDto.cs",
@@ -291,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "SongService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\BL\\SongService.cs",
               "RelativeDocumentMoniker": "BL\\SongService.cs",
@@ -303,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\Entities\\LoginDto.cs",
               "RelativeDocumentMoniker": "DL\\Entities\\LoginDto.cs",
@@ -315,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\DL\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "DL\\ApplicationDbContext.cs",
@@ -339,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "PlaySync\\Controllers\\AuthController.cs",

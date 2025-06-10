@@ -4,6 +4,8 @@ using BL;
 using DL.Entities;
 using DL;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 
 
@@ -281,6 +283,7 @@ namespace PlaySyncApi.Controllers
 
 
         [HttpPost("exists")]
+        
         public async Task<IActionResult> CheckEmailExists([FromBody] EmailDto emailDto)
         {
             //try
@@ -297,6 +300,32 @@ namespace PlaySyncApi.Controllers
             //    _logger.LogError(ex.Message, "The check had some problems");
             //    return StatusCode(500, "Internal server error"); 
             //}
+        }
+
+        [HttpGet("me")]
+        [Authorize]
+        public async Task<IActionResult> GetCurrentUser()
+        {
+            try
+            {
+                // שליפת userId מתוך ה-claims של הטוקן
+                var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+                if (userIdClaim == null)
+                    return Unauthorized("No user id in token");
+
+                int userId = int.Parse(userIdClaim.Value);
+
+                var user = await _userService.GetUserByIdAsync(true, userId);
+                if (user == null)
+                    return NotFound("User not found");
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching current user");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }

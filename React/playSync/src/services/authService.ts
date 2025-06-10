@@ -93,6 +93,7 @@ export const refreshToken = async (refreshToken: string) => {
                 'Content-Type': 'application/json'
             }
         });
+        
         return response.data;
     } catch (error) {
         console.error("Error refreshing token:", error);
@@ -107,6 +108,16 @@ export const checkEmailExists = async (email: string): Promise<boolean> => {
     } catch (error) {
         console.log("checkEmailExists ERROR:", error);
         return false; // במקרה של שגיאה, תתייחסי אליו כלא קיים כדי לא להפיל את הטופס
+    }
+};
+
+export const getCurrentUser = async () => {
+    try {
+        const response = await axiosClient.get(`${API}/me`);
+        return response.data;
+    } catch (error) {
+        console.error("Error getting current user:", error);
+        throw new Error('Failed to get current user');
     }
 };
 

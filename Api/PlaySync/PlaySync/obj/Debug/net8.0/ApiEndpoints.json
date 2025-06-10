@@ -318,6 +318,16 @@
   },
   {
     "ContainingType": "PlaySyncApi.Controllers.UserController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/User/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PlaySyncApi.Controllers.UserController",
     "Method": "RefreshToken",
     "RelativePath": "api/User/refresh-token",
     "HttpMethod": "POST",

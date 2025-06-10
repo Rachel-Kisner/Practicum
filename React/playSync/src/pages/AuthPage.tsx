@@ -21,7 +21,7 @@
 //         Welcome to PlaySync
 //       </Typography>
 
-      
+
 
 //       {/* כפתור לפתיחת המודאל (אם תסגרי אותו ורוצה לפתוח שוב)
 //       {!isOpen && (
@@ -41,16 +41,17 @@
 
 import { useState } from "react";
 import AuthForm from "../components/AuthForm";
-import {  Container } from "@mui/material";
-import Header from "../components/Header";
+import { Container } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+// import {Header} from "../components/Header";
 
 export default function AuthPage() {
   const [isOpen, setIsOpen] = useState(true);
-
+  const navigate = useNavigate();
   return (
     <>
       {/* 🔵 Header קבוע בראש הדף */}
-     <Header/>
+      {/* <Header onNavigate={() => {}} /> */}
 
       {/* 🔵 תוכן הדף המרכזי */}
       <Container
@@ -71,7 +72,9 @@ export default function AuthPage() {
         )} */}
 
         {/* 🔵 קומפוננטת הטופס */}
-        <AuthForm open={isOpen} onClose={() => setIsOpen(false)} />
+        <AuthForm 
+        open={isOpen} 
+        onClose={() => {setIsOpen(false); navigate("/")}} />
       </Container>
     </>
   );

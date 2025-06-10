@@ -741,13 +741,15 @@
 
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box, Button, Modal, TextField, Typography, CircularProgress } from "@mui/material";
 import { checkEmailAndPassword, checkEmailExists, registerUser } from "../services/authService"; // ✅ שונה: משתמשים ב-checkEmailExists במקום checkEmailAndPassword
 // import { useAuth } from "../Hooks/useAuth";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 interface AuthFormProps {
   open: boolean;
@@ -803,6 +805,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
   });
 
   const email = watch("email");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // 🟩 בכל פעם שהמייל משתנה – נבדוק אם הוא קיים במסד
   useEffect(() => {
@@ -821,6 +825,15 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
     };
     check();
   }, [email]);
+
+  useEffect(() => {
+    if(isRegister && location.pathname !== '/register') {
+      navigate('/register', {replace: true})
+    }
+    if (!isRegister && location.pathname !== '/login') {
+      navigate('/login', {replace: true})
+    }
+  },[isRegister,location.pathname,navigate])
   const handleClose = () => {
     reset();
     onClose();
@@ -864,7 +877,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal
+      open={open}
+      onClose={(event, reason) => {
+        if (reason === "backdropClick") return;
+        handleClose();
+      }}>
       <Box sx={style}>
         <Typography variant="h6" gutterBottom>
           {isRegister ? "Register" : "Login"}

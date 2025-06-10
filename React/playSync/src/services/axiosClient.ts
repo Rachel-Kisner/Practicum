@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://localhost:44322/api'; // Base URL for the API, change this to your actual API URL
+const API= 'User'; // The specific API endpoint for user-related operations
 // Create an axios instance with the base URL and default headers
 // This instance can be used throughout the application to make API requests
 const axiosClient = axios.create({
@@ -63,7 +64,7 @@ axiosClient.interceptors.response.use(
                 if (!refreshToken) {
                     throw new Error('No refresh token available');
                 }
-                const response = await axios.post(`${BASE_URL}/refresh`, { refreshToken });
+                const response = await axios.post(`${BASE_URL}${API}/refresh-token`, { refreshToken });
                 const newAccessToken = response.data.accessToken;
                 const newRefreshToken = response.data.refreshToken;
                 localStorage.setItem('accessToken', newAccessToken);

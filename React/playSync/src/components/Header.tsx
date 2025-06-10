@@ -15,7 +15,9 @@
 // export default Header;
 
 import React from "react";
-import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, 
+  // Box 
+} from "@mui/material";
 
 const Header: React.FC = () => {
   return (

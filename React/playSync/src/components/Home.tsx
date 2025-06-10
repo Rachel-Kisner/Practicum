@@ -29,7 +29,9 @@ export const LoginContext = createContext<[boolean, Dispatch<SetStateAction<bool
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
-    const [isregister, setIsRegister] = useState(false);
+    const [isregister, 
+        // setIsRegister
+    ] = useState(false);
     const [user, userDispatch] = useReducer(reducer, initialState);
     const [isLogin, setIsLogin] = useState(false);
     return (

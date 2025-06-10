@@ -746,8 +746,8 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box, Button, Modal, TextField, Typography, CircularProgress } from "@mui/material";
-import { checkEmailAndPassword, checkEmailExists, loginUser, registerUser } from "../services/authService"; // ✅ שונה: משתמשים ב-checkEmailExists במקום checkEmailAndPassword
-import { useAuth } from "../Hooks/useAuth";
+import { checkEmailAndPassword, checkEmailExists, registerUser } from "../services/authService"; // ✅ שונה: משתמשים ב-checkEmailExists במקום checkEmailAndPassword
+// import { useAuth } from "../Hooks/useAuth";
 
 interface AuthFormProps {
   open: boolean;
@@ -787,15 +787,15 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
   const [isRegister, setIsRegister] = useState(false); // 🟦 מצב האם אנחנו ברישום
   const [showPasswordField, setShowPasswordField] = useState(false); // 🟦 האם להציג שדה סיסמה
   const [isLoading, setIsLoading] = useState(false); // 🟦 האם להציג Spinner
-  const { login } = useAuth(); // 🟦 hook להתחברות למערכת
+  // const { login } = useAuth(); // 🟦 hook להתחברות למערכת
 
   const {
     handleSubmit,
     control,
     setError,
-    clearErrors,
+    // clearErrors,
     watch,
-    getValues,
+    // getValues,
     reset,
     formState: { errors },
   } = useForm<FormData>({

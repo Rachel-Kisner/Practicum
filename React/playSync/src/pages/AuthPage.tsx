@@ -41,7 +41,7 @@
 
 import { useState } from "react";
 import AuthForm from "../components/AuthForm";
-import { AppBar, Toolbar, Typography, Container, Box } from "@mui/material";
+import {  Container } from "@mui/material";
 import Header from "../components/Header";
 
 export default function AuthPage() {

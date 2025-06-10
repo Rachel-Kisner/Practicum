@@ -176,7 +176,9 @@ const getSchema = (isRegister: boolean) =>
       }),
   });
 
-export default function FormWrapper({ isRegister, onSubmit, formError }: FormWrapperProps) {
+export default function FormWrapper({ isRegister, onSubmit,
+  //  formError 
+  }: FormWrapperProps) {
    const schema = React.useMemo(() => getSchema(isRegister), [isRegister]);
 
   const {

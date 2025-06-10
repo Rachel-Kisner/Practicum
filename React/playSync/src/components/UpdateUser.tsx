@@ -2,7 +2,7 @@ import { Modal, Box, Typography, TextField, Button, CircularProgress } from "@mu
 import { useState, useContext, useRef } from "react";
 import { userContext } from "./Home";
 import { Action, User } from "../user";
-import { api } from "../services/api";
+// import { api } from "../services/api";
 
 const style = {
   position: 'absolute',
@@ -20,14 +20,16 @@ interface UpdateUserProps {
   isRegister: boolean;
 }
 export default function UpdateUser({ onClose, isRegister }: UpdateUserProps) {
-  const [open, setOpen] = useState(true);  
+  const [open, 
+    // setOpen
+  ] = useState(true);  
   const handleClose = onClose;  
   const [updateBtn, setUpdateBtn] = useState(false);  
   const [user, userDispatch] = useContext(userContext);  
   const firstNameRef = useRef<HTMLInputElement>(null);  
   const lastNameRef = useRef<HTMLInputElement>(null);  
   const addressRef = useRef<HTMLInputElement>(null);  
-  const passRef = useRef<HTMLInputElement>(null);  
+  // const passRef = useRef<HTMLInputElement>(null);  
   const emailRef = useRef<HTMLInputElement>(null);  
   const phonRef = useRef<HTMLInputElement>(null); 
   const [isLoading, setIsLoading] = useState(false);  
@@ -46,9 +48,8 @@ export default function UpdateUser({ onClose, isRegister }: UpdateUserProps) {
     try {
       setIsLoading(true);
       setError(null); 
-      let response;  
       console.log("USER BEFORE UPDATE:", user.id,user.email);
-      response = await api.updateUser(userSubmit); 
+    //  const response = await api.updateUser(userSubmit); 
       const action: Action = {
         type: 'UPDATE',
         data: userSubmit

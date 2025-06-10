@@ -25,8 +25,12 @@ interface LoginModalProps {
 }
 export default function LoginModal({ onClose, onLoginSuccess }: LoginModalProps) { 
     const [emailRef, passwordRef] = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];  // שימוש ב-refs לטופס
-    const [isOpen, setIsOpen] = useState(true); 
-    const [user, userDispatch] = useContext(userContext);
+    const [
+        // isOpen
+        , setIsOpen] = useState(true); 
+    const [
+        // user
+        , userDispatch] = useContext(userContext);
     const [isLogin, setIsLogin] = useContext(LoginContext);  
     const [error, setError] = useState<string | null>(null);
     const handleSubmitWithValidation = async (register: boolean) => {

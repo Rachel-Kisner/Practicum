@@ -14,8 +14,6 @@ namespace BL
         public string Artist { get; set; } = string.Empty;
         public string Genre { get; set; } = string.Empty;
 
-        public required IFormFile File { get; set; }
-
     }
 
     public class SongResponseDto

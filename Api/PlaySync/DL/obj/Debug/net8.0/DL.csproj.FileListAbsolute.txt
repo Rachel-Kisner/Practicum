@@ -21,7 +21,6 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.Generated
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.AssemblyInfoInputs.cache
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.AssemblyInfo.cs
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.csproj.CoreCompileInputs.cache
-C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.sourcelink.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\refint\DL.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\DL\obj\Debug\net8.0\DL.pdb

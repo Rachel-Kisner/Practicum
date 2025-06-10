@@ -24,8 +24,10 @@ export default function Menue() {
             <nav style={{ position: "fixed", top: "30px", right: "50px" }}>
                 <Link to="" style={linkStyle}>Home</Link>
                 <Link to="/songs" style={linkStyle}>Show All Songs </Link>
+                <Link to="/AuthForm" style={linkStyle}>Auth Form</Link>
                 {login ? <Link to="/addSong" style={linkStyle} >Add Song</Link> : null}
                 {login ? <Link to="/playlist" style={linkStyle} >playlist</Link> : null}
+
             </nav>
             <Outlet />
         </>

@@ -2,21 +2,26 @@ import Song from "./components/Song"
 import Playlist from "./components/Playlist";
 import Home from "./components/Home"
 import { createBrowserRouter } from 'react-router-dom';
-const router=createBrowserRouter([
+// import { AuthForm } from "./components/AuthForm";
+import { useState } from "react";
+const [isOpen, setIsOpen] = useState(false);
+const router = createBrowserRouter([
     {
-        path:"/",
-        element:<Home/>,
-        children:[
+        path: "/",
+        element: <Home />,
+        children: [
             {
-                path:"/songs",
-                element:<Song/>
+                path: "/songs",
+                element: <Song />
             },
             {
-                path:"/playlist",
-                element:<Playlist/>
-            }
+                path: "/playlist",
+                element: <Playlist />
+            },
             
-            
+
+
+
         ]
     },
 ])

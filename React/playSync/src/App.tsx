@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import { RouterProvider } from 'react-router-dom'
-import router from './Router'
+// import { useState } from 'react'
+// import { RouterProvider } from 'react-router-dom'
+// import router from './Router'
+// import { AuthForm } from './components/AuthForm'
 
+import AuthPage from "./pages/AuthPage"
+
+// import Header from './components/Header'
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <div>
+      {/* <Header /> */}
+      {/* <RegisterPage/> */}
+       <AuthPage/>
+    </div>
+
   )
 }
 

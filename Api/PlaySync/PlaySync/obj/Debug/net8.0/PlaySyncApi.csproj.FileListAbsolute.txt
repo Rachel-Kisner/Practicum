@@ -333,7 +333,6 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\static
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PlaySyncApi.props
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PlaySyncApi.props
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySync.D4A7E9F8.Up2Date
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\PlaySyncApi.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\refint\PlaySyncApi.dll
@@ -349,3 +348,14 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publis
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.deps.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.runtimeconfig.json
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\publish-test\PlaySyncApi.staticwebassets.endpoints.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\PlaySyncApi.staticwebassets.runtime.json
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\libmp3lame.32.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\libmp3lame.64.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.Asio.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.Core.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.Lame.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.Midi.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.Wasapi.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.WinMM.dll

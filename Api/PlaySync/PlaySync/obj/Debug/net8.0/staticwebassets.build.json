@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "WJE4ga7vklzwwfv5GLLGLg+v60npsotlFQy3aOTkcsc=",
+  "Hash": "7KL/t6ouQY9bmp7iD++ZpqXlhwXn2miQeFpSWjIE/3s=",
   "Source": "PlaySyncApi",
   "BasePath": "_content/PlaySyncApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PlaySyncApi\\wwwroot",
+      "Source": "PlaySyncApi",
+      "ContentRoot": "C:\\Users\\user1\\Documents\\Practicum\\Api\\PlaySync\\PlaySync\\wwwroot\\",
+      "BasePath": "_content/PlaySyncApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }

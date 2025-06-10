@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Crypto.Generators;
 using BL.Validators;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using DL.Migrations;
 
 
 namespace BL
@@ -13,11 +17,12 @@ namespace BL
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<UserService> _logger;
-
-        public UserService(ApplicationDbContext context,ILogger<UserService> logger)
+        private readonly IPasswordHasher<User> _passwordHasher;
+        public UserService(ApplicationDbContext context,ILogger<UserService> logger,IPasswordHasher<User>passwordHasher)
         {
             _context = context;
             _logger = logger;
+            _passwordHasher = passwordHasher;
         }
 
 
@@ -56,19 +61,18 @@ namespace BL
             }
         }
 
-        public async Task<bool> CreateUserAsync(string name, string password, string email, Role role)
+        public async Task<bool> CreateUserAsync(RegisterUserDto dto)
         {
-
-            UserValidator.ValidateUserInput(name, email, password);
-            await UserValidator.ValidateUniqueEmailAsync(_context, email);
-            var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            UserValidator.ValidateUserInput(dto.Name, dto.Email, dto.PasswordHash);
+            await UserValidator.ValidateUniqueEmailAsync(_context, dto.Email);
+            var passwordHash = _passwordHasher.HashPassword(null, dto.PasswordHash);
 
             var user = new User
             {
-                Name = name,
+                Name = dto.Name,
                 PasswordHash = passwordHash,
-                Email = email,
-                Role = role
+                Email = dto.Email,
+                Role = (Role)dto.Role
             };
 
             _context.Users.Add(user);
@@ -76,7 +80,8 @@ namespace BL
             return true;
         }
 
-        public async Task<User> UpdateUserByIdAsync(int userId, User updateUser)
+
+        public async Task<User?> UpdateUserByIdAsync(int userId, User updateUser)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return null;
@@ -91,7 +96,7 @@ namespace BL
             }
             user.Role = updateUser.Role;
             user.UpdatedAt = DateTime.UtcNow;  
-            _context.Users.Update(user);
+            //_context.Users.Update(user);
             _context.SaveChanges();
 
             return user;
@@ -110,6 +115,7 @@ namespace BL
             return true;
         }
 
+
         public async Task<List<User>> SearchUsersAsync(string searchTerm)
         {
             return await _context.Users
@@ -117,9 +123,9 @@ namespace BL
                 .ToListAsync();
         }
 
-        public async Task<bool> IsEmailTakenAsync(string email)
+        public async Task<bool> IsEmailTakenAsync([FromBody]EmailDto emailDto)
         {
-            return await _context.Users.AnyAsync(u => u.Email == email);
+            return await _context.Users.AnyAsync(u => u.Email == emailDto.Email);
         }
 
         public async Task<bool> ResetPasswordAsync(string email)
@@ -130,7 +136,7 @@ namespace BL
 
             // יצירת סיסמה זמנית אקראית
             var tempPassword = Guid.NewGuid().ToString().Substring(0, 8);
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(tempPassword);
+            user.PasswordHash = _passwordHasher.HashPassword(user, tempPassword); 
 
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
@@ -144,10 +150,17 @@ namespace BL
         public async Task<bool> ChangePasswordAsync(int userId, string oldPassword, string newPassword)//this function is only to change the password 
         {
             var user = await _context.Users.FindAsync(userId);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(oldPassword, user.PasswordHash))
+            if (user == null)
                 return false;
 
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+            // אימות הסיסמה הישנה מול ה-Hash
+            var verifyResult = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, oldPassword);
+            if (verifyResult != PasswordVerificationResult.Success)
+                return false;
+
+            // Hash לסיסמה החדשה ושמירתה
+            user.PasswordHash = _passwordHasher.HashPassword(user, newPassword);
+
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
             return true;
@@ -166,5 +179,42 @@ namespace BL
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<RefreshToken?> GetValidRefreshTokenAsync(string token)
+        {
+            return await _context.RefreshTokens
+                .Include(r => r.User)
+                .FirstOrDefaultAsync(r => r.Token == token && !r.IsRevoked && r.ExpiryDate > DateTime.UtcNow);
+        }
+
+        public async Task StoreRefreshTokenAsync(RefreshToken token)
+        {
+            await _context.RefreshTokens.AddAsync(token);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RevokeAndReplaceRefreshTokenAsync(RefreshToken oldToken, RefreshToken newToken)
+        {
+            oldToken.IsRevoked = true;
+            await _context.RefreshTokens.AddAsync(newToken);
+            await _context.SaveChangesAsync();
+        }
+       
+        public async Task<User?> GetUserByCredentialsAsync(string email, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (user == null)
+                return null;
+
+            // בדיקת הסיסמה שהוזנה מול ה־Hash השמור
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
+
+            if (result == PasswordVerificationResult.Success)
+                return user;
+
+            return null;
+        }
+
+
     }
 }

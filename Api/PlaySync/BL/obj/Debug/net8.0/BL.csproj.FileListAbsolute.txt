@@ -28,3 +28,5 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\refint\BL.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\BL.pdb
 C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\obj\Debug\net8.0\ref\BL.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\bin\Debug\net8.0\libmp3lame.32.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\BL\bin\Debug\net8.0\libmp3lame.64.dll

@@ -38,7 +38,7 @@ class SongStore {
     }
     async getSong() {
         try {
-            const res = await axios.get("http://localhost:3000/api/recipes");
+            const res = await axios.get("https://localhost:44322/api/song");
             this.songList = res.data;
         } catch (error: any) {
             this.handleError(error)

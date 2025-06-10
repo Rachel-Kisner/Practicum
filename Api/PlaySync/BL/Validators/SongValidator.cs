@@ -10,8 +10,8 @@ namespace BL.Validators
 {
     public class SongValidator
     {
-        private const long MaxFileSize = 5 * 1024 * 1024; // 5MB in bytes
-        private static readonly string[] AllowedExtensions = { ".mp3", ".wav", ".flac" };
+        private const long MaxFileSize = 30 * 1024 * 1024; // 30MB in bytes
+        private static readonly string[] AllowedExtensions = { ".mp3", ".wav" };
 
         /// <summary>
         ///check if song is valid

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using BL;
 using DL.Entities;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace PlaySyncApi.Controllers
@@ -65,6 +66,8 @@ namespace PlaySyncApi.Controllers
             try
             {
                 var songs = await _songService.SearchSongsAsync(query);
+                if (songs == null || !songs.Any())
+                    return Ok(new { message = "No songs matching the search were found. ", data = songs });
                 return Ok(songs);
             }
             catch (Exception ex)
@@ -74,11 +77,12 @@ namespace PlaySyncApi.Controllers
         }
 
         [HttpPost("upload")]
+
         public async Task<IActionResult> UploadSong([FromForm] SongUploadDto request)
         {
             try
             {
-
+                
                 var song = await _songService.UploadSongAsync(request.File, request.Title, request.Artist, request.Genre, request.UserId);
                 return Ok(song);
             }
@@ -88,13 +92,20 @@ namespace PlaySyncApi.Controllers
 
         [HttpPut("{songId}")]
 
-
         public async Task<IActionResult> UpdateSong(int songId, [FromBody] SongRequestDto dto)
         {
             try
             {
                 var song = await _songService.UpdateSongAsync(songId, dto);
                 return song != null ? Ok(song) : NotFound();
+            }
+            //catch (UnauthorizedAccessException)
+            //{
+            //    return Forbid();
+            //}
+            catch (ArgumentException)
+            {
+                return NotFound();
             }
             catch (Exception ex)
             {

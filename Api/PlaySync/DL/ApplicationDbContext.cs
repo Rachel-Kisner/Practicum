@@ -11,6 +11,8 @@ namespace DL
         public DbSet<Song> Songs { get; set; }
         public DbSet<PlayList> Playlists { get; set; }
         public DbSet<PlaylistSong> PlaylistSongs { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

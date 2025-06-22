@@ -11,6 +11,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using BL;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using PlaySyncApi.Authorization;
+using BL.Mapping;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -28,6 +31,15 @@ builder.Configuration
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("OwnerOrAdmin", policy =>
+        policy.Requirements.Add(new OwnerOrAdminRequirement()));
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, OwnerOrAdminHandler>();
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -164,7 +176,10 @@ builder.Services.AddAuthentication(options =>
 //        };
 //    });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+
+
 builder.Services.AddControllers();
 builder.Logging.AddConsole()
        .AddDebug()
@@ -215,10 +230,10 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaySync API V1");
 });
 //}
+app.UseCors("AllowReactApp");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowReactApp");
 
 
 app.MapControllers();

@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore.Design;
 using BL;
 using DL.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 
 namespace PlaySyncApi.Controllers
@@ -48,11 +51,13 @@ namespace PlaySyncApi.Controllers
             }
         }
 
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetSongsByUserId(int userId)
+        [HttpGet("user")]
+        [Authorize(Policy = "OwnerOrAdmin")]
+        public async Task<IActionResult> GetSongsByCurrentUser()
         {
             try
             {
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
                 var songs = await _songService.GetSongsByUserAsync(userId);
                 return Ok(songs);
             }
@@ -77,13 +82,15 @@ namespace PlaySyncApi.Controllers
         }
 
         [HttpPost("upload")]
+        [Authorize]
 
         public async Task<IActionResult> UploadSong([FromForm] SongUploadDto request)
         {
             try
             {
-                
-                var song = await _songService.UploadSongAsync(request.File, request.Title, request.Artist, request.Genre, request.UserId);
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+          
+                var song = await _songService.UploadSongAsync(request.File, request.Title, request.Artist, request.Genre, (bool)request.Favorite, userId);
                 return Ok(song);
             }
             catch (Exception ex)
@@ -91,12 +98,16 @@ namespace PlaySyncApi.Controllers
         }
 
         [HttpPut("{songId}")]
+        [Authorize(Policy = "OwnerOrAdmin" )]
 
         public async Task<IActionResult> UpdateSong(int songId, [FromBody] SongRequestDto dto)
         {
             try
             {
-                var song = await _songService.UpdateSongAsync(songId, dto);
+
+                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+                var isAdmin = User.FindFirst(ClaimTypes.Role)?.Value == nameof(Role.Admin);
+                var song = await _songService.UpdateSongAsync(songId, dto,  userId,  isAdmin);
                 return song != null ? Ok(song) : NotFound();
             }
             //catch (UnauthorizedAccessException)
@@ -112,12 +123,29 @@ namespace PlaySyncApi.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-      
+
+        [HttpPut("{songId}/favorit")]
+        [Authorize(Policy = "OwnerOrAdmin")]
+        public async Task<IActionResult> ToggleFavorite(int songId)
+        {
+            try {
+                await _songService.ToggleFavoriteAsync(songId);
+                return Ok(new {message = "Favorite status toggled successfully."});
+            }
+            catch (Exception ex) {
+                return BadRequest(new{message= ex.Message });
+            }
+        }
+
         [HttpDelete("{songId}")]
-        public async Task<IActionResult> DeleteSongBySongId(int songId, int userId, bool isAdmin)
+        [Authorize(Policy = "OwnerOrAdmin")]
+        public async Task<IActionResult> DeleteSongBySongId(int songId)
         {
             try
             {
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                var role = User.FindFirstValue(ClaimTypes.Role);
+                bool isAdmin = role == "Admin";
                  await _songService.DeleteSongAsync(songId, userId, isAdmin);
                 return NoContent(); ;
             }

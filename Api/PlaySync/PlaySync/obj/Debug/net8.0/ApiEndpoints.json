@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_9",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_10",
     "RelativePath": "",
     "HttpMethod": "GET",
     "IsController": false,
@@ -76,16 +76,22 @@
         "Name": "songId",
         "Type": "System.Int32",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PlaySyncApi.Controllers.SongController",
+    "Method": "ToggleFavorite",
+    "RelativePath": "api/Song/{songId}/favorit",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "userId",
+        "Name": "songId",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "isAdmin",
-        "Type": "System.Boolean",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -115,11 +121,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -135,6 +136,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Favorite",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
         "Name": "File",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
@@ -144,18 +150,12 @@
   },
   {
     "ContainingType": "PlaySyncApi.Controllers.SongController",
-    "Method": "GetSongsByUserId",
-    "RelativePath": "api/Song/user/{userId}",
+    "Method": "GetSongsByCurrentUser",
+    "RelativePath": "api/Song/user",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -335,8 +335,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "BL.DTOs.RefreshTokenRequest",
         "IsRequired": true
       }
     ],

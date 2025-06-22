@@ -11,6 +11,10 @@ using System.ComponentModel;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
+using BL.DTOs;
+using Org.BouncyCastle.Crypto;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace BL
 {
@@ -21,12 +25,14 @@ namespace BL
         private readonly CloudinaryService _cloudinaryService;
 
         private readonly ILogger<SongService> _logger;
+        private readonly IMapper _mapper;
 
-        public SongService(ApplicationDbContext context, CloudinaryService cloudinaryService, ILogger<SongService> logger)
+        public SongService(ApplicationDbContext context, CloudinaryService cloudinaryService, ILogger<SongService> logger,IMapper mapper)
         {
             _context = context;
             _cloudinaryService = cloudinaryService;
             _logger = logger;
+            _mapper = mapper;
         }
 
         private async Task<(string url, string publicId)?> BackupSongToCloudinaryAsync(IFormFile file)
@@ -100,7 +106,7 @@ namespace BL
         }
 
 
-        public async Task<Song?> UploadSongAsync(IFormFile file, string title, string artist, string genre, int userId)
+        public async Task<Song?> UploadSongAsync(IFormFile file, string title, string artist, string genre,bool favorite, int userId)
         {
             return await ExecuteSafeAsync(async () =>
             {
@@ -111,7 +117,9 @@ namespace BL
                 }
 
                 SongValidator.ValidateFile(file);
+                _logger.LogInformation("Upload started: " + DateTime.Now);
                 var cloudinaryResult = await UploadFileToCloudinaryAsync(file);
+                _logger.LogInformation("Upload finished: " + DateTime.Now);
                 var backUpResult = await BackupSongToCloudinaryAsync(file);
 
 
@@ -122,6 +130,7 @@ namespace BL
                     Title = title,
                     Artist = artist,
                     Genre = genre,
+                    Favorite = favorite,
                     CloudinaryUrl = cloudinaryResult?.Url ?? string.Empty,
                     CloudinaryPublicId = cloudinaryResult?.PublicId ?? string.Empty,
                     BackupUrl = backUpResult?.url ?? string.Empty,
@@ -158,7 +167,10 @@ namespace BL
             {
                 var song = await _context.Songs.FindAsync(songId);
                 if (song == null)
-                    throw new ArgumentException("Song not found.");
+                {
+                    _logger.LogWarning($"Song with Id {songId} not found");
+                    return;
+                }
 
                 if (song.UserId != userId && !isAdmin)
                 {
@@ -185,7 +197,15 @@ namespace BL
                     }
                 }
                 _context.Songs.Remove(song);
+                try
+                {  
                 await _context.SaveChangesAsync();
+                }
+                //here - we don't throw an exception bec propbebly the song is not exsists
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    _logger.LogWarning($"Concurrency error while deleting song {songId}");
+                }
             });
 
         }
@@ -198,16 +218,18 @@ namespace BL
             .FirstOrDefaultAsync(s => s.Id == songId)
            );
 
-        public async Task<List<Song>> GetAllSongsAsync()
+        public async Task<List<SongDto>> GetAllSongsAsync()
         {
             try
             {
-                return await _context.Songs.Include(s => s.User).ToListAsync();
+                var songs = await _context.Songs.Include(s => s.User).ToListAsync();
+                return _mapper.Map<List<SongDto>>(songs);
+                    
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error fetching all songs{ex.Message}");
-                return new List<Song>();
+                return new List<SongDto>(); ;
             }
         }
 
@@ -236,25 +258,26 @@ namespace BL
         //}
 
 
-        public async Task<Song?> UpdateSongAsync(int songId, SongRequestDto dto)
+        public async Task<Song?> UpdateSongAsync(int songId, SongRequestDto dto,int userId, bool isAdmin)
         {
             return await ExecuteSafeAsync(async () =>
             {
-
                 var song = await _context.Songs.FindAsync(songId);
                 if (song == null)
                     throw new ArgumentException("Song not found.");
 
-                if (song.UserId != dto.UserId)
+                
+                if (song.UserId !=userId&&!isAdmin)//cheking if user is not the current user and user isn't admin
                     throw new UnauthorizedAccessException("No permission to update this song.");
 
                 song.Title = dto.Title;
                 song.Artist = dto.Artist;
                 song.Genre = dto.Genre;
+                song.Favorite = dto.Favorite;
                 song.UpdatedAt = DateTime.UtcNow;
                 SongValidator.ValidateSong(song);
-                _context.Songs.Update(song);
 
+                _context.Songs.Update(song);
                 await _context.SaveChangesAsync();
                 return song;
             });
@@ -307,6 +330,26 @@ namespace BL
                 return new List<Song>();
             }
         }
+
+        public async Task ToggleFavoriteAsync(int id)
+        {
+            try
+            {
+                var song = await GetSongBySongIdAsync(id);
+                if (song == null)
+                {
+                    _logger.LogWarning($"song with id {id} not found");
+                    throw new Exception("song not found");
+                }
+                song.Favorite=!song.Favorite;
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex) {
+                _logger.LogError($"Error in ToggleFavoriteAsync: {ex.Message}");
+                throw;
+            }
+        }
+       
     }
 }
 

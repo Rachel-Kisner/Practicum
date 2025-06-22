@@ -9,10 +9,10 @@ namespace BL
 {
     public class SongRequestDto
     {
-        public int UserId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Artist { get; set; } = string.Empty;
         public string Genre { get; set; } = string.Empty;
+        public bool Favorite { get; set; }
 
     }
 

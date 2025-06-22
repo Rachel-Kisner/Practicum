@@ -9,10 +9,11 @@ namespace BL
 {
     public class SongUploadDto
     {
-        public  int UserId { get; set; }
+
         public required string? Title { get; set; } = string.Empty;
         public required string? Artist { get; set; } = string.Empty;
         public string? Genre { get; set; }
+        public required bool Favorite { get; set; }
 
         // הקובץ עצמו
         public required IFormFile File { get; set; }

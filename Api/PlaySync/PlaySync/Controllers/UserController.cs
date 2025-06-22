@@ -6,6 +6,7 @@ using DL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using BL.DTOs;
 
 
 
@@ -76,7 +77,7 @@ namespace PlaySyncApi.Controllers
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-      
+
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] RegisterUserDto newUser)
         {
@@ -85,7 +86,7 @@ namespace PlaySyncApi.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-             
+
                 bool result = await _userService.CreateUserAsync(newUser);
 
                 return result
@@ -101,7 +102,7 @@ namespace PlaySyncApi.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, "Error creating user");
-                return StatusCode(500,ex.Message);
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -247,17 +248,24 @@ namespace PlaySyncApi.Controllers
             {
                 _logger.LogError(ex, "Error in Login");
                 return StatusCode(500, "Internal server error");
-            } 
+            }
         }
 
         [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
         {
-            var tokenInDb = await _userService.GetValidRefreshTokenAsync(refreshToken);
+            Console.WriteLine("Received refresh token:" + request);
+            var tokenInDb = await _userService.GetValidRefreshTokenAsync(request.RefreshToken);
 
-            if (tokenInDb == null || tokenInDb.ExpiryDate < DateTime.UtcNow)
+            if (tokenInDb == null) 
+            {
+                Console.WriteLine("Token not founf in db or null");
                 return Unauthorized("Invalid or expired refresh token");
-
+            }
+            if(tokenInDb.ExpiryDate < DateTime.UtcNow)
+            {
+                Console.WriteLine("Token expired at "+ tokenInDb.ExpiryDate);
+            }
             var newAccessToken = _jwtTokenService.GenerateAccessToken(tokenInDb.User);
             var newRefreshToken = _jwtTokenService.GenerateRefreshToken();
 
@@ -283,17 +291,17 @@ namespace PlaySyncApi.Controllers
 
 
         [HttpPost("exists")]
-        
+
         public async Task<IActionResult> CheckEmailExists([FromBody] EmailDto emailDto)
         {
             //try
             //{
-                Console.WriteLine("Email received: " + emailDto.Email); // הוספת הדפסה
+            Console.WriteLine("Email received: " + emailDto.Email); // הוספת הדפסה
 
-                var exists = await _userService.IsEmailTakenAsync(emailDto);
-                Console.WriteLine("Exists? " + exists); // הדפסה של התוצאה
+            var exists = await _userService.IsEmailTakenAsync(emailDto);
+            Console.WriteLine("Exists? " + exists); // הדפסה של התוצאה
 
-                return Ok(new { exists });
+            return Ok(new { exists });
             //}
             //catch (Exception ex)
             //{
@@ -301,6 +309,7 @@ namespace PlaySyncApi.Controllers
             //    return StatusCode(500, "Internal server error"); 
             //}
         }
+
 
         [HttpGet("me")]
         [Authorize]

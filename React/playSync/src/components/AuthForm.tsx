@@ -741,19 +741,19 @@
 
 
 
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Box, Button, Modal, TextField, Typography, CircularProgress } from "@mui/material";
-import { checkEmailAndPassword, checkEmailExists, registerUser } from "../services/authService"; // ✅ שונה: משתמשים ב-checkEmailExists במקום checkEmailAndPassword
-// import { useAuth } from "../Hooks/useAuth";
+import { Box, Button, Modal, TextField, Typography, CircularProgress, Alert } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { useAuth } from "../Hooks/useAuth";
+import { checkEmailExists } from "../services/authService"; // ✅ החזרת הפונקציה
 
 interface AuthFormProps {
   open: boolean;
   onClose: () => void;
+  initialIsRegister: boolean;
 }
 
 const style = {
@@ -785,12 +785,12 @@ const schema = yup.object().shape({
 
 
 
-const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
-  const [isRegister, setIsRegister] = useState(false); // 🟦 מצב האם אנחנו ברישום
+const AuthForm: React.FC<AuthFormProps> = ({ open, onClose,initialIsRegister }) => {
+  const [isRegister, setIsRegister] = useState(initialIsRegister); // 🟦 מצב האם אנחנו ברישום
   const [showPasswordField, setShowPasswordField] = useState(false); // 🟦 האם להציג שדה סיסמה
   const [isLoading, setIsLoading] = useState(false); // 🟦 האם להציג Spinner
-  // const { login } = useAuth(); // 🟦 hook להתחברות למערכת
-
+  const { login, register } = useAuth();
+  const [formError, setFormError] = useState<string | null>(null);
   const {
     handleSubmit,
     control,
@@ -811,7 +811,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
   // 🟩 בכל פעם שהמייל משתנה – נבדוק אם הוא קיים במסד
   useEffect(() => {
     const check = async () => {
-      if (!email || !email.includes("@")) return; // 📌 התעלמות ממייל לא תקין
+      if (!email || !email.includes("@")) return; 
       setIsLoading(true);
       try {
         const exists = await checkEmailExists(email); // 🟦 שליפת סטטוס קיום
@@ -819,6 +819,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
         setShowPasswordField(true); // ✅ מציגים את שדה הסיסמה רק אחרי בדיקה
       } catch (error: any) {
         console.error("Email check failed:", error);
+        setFormError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -839,42 +840,38 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
     onClose();
   };
 
-  const onSubmit = async (data: FormData) => {
-    setIsLoading(true);
-    try {
-      if (isRegister) {
-        // ✅ אם במצב הרשמה – נדרוש גם שם משתמש
-        if (!data.username) {
-          setError("username", { type: "manual", message: "Username is required" });
-          return;
-        }
-        await registerUser({
-          email: data.email,
-          password: data.password,
-          username: data.username,
-        });
-
-        handleClose(); // סגירת המודל לאחר רישום מוצלח
-      } else {
-        // 🔵 אם המשתמש קיים – נבדוק אם הסיסמה תואמת לפני login
-        console.log("Email:", data.email, "Password:", data.password);
-        const isValid = await checkEmailAndPassword(data.email, data.password);
-        console.log("Password is valid?", isValid);
-        if (!isValid) {
-          // 🔵 אם לא תואם – נציג שגיאה בשדה הסיסמה
-          setError("password", { type: "manual", message: "Incorrect password" });
-          return;
-        }
-        handleClose(); // סגירת המודל לאחר התחברות מוצלחת
-
+const onSubmit = async (data: FormData) => {
+  setFormError(null)
+  setIsLoading(true);
+  try {
+    if (isRegister) {
+      if (!data.username) {
+        setError("username", { type: "manual", message: "Username is required" });
+        return;
       }
 
-    } catch (error: any) {
-      setError("email", { type: "manual", message: error.message });
-    } finally {
-      setIsLoading(false);
+      await register({
+        email: data.email,
+        password: data.password,
+        username: data.username,
+      }); // ✅ משתמש ב־register מתוך הקונטקסט – שמעדכן את ה־user
+
+    } else {
+      await login({
+        email: data.email,
+        password: data.password,
+      }); // ✅ משתמש ב־login מתוך הקונטקסט – שמעדכן את ה־user
     }
-  };
+
+    handleClose(); // סגירת המודל אחרי הצלחה
+  } catch (error: any) {
+    console.log(error.message);
+    setFormError(error.message || "An unexpected error occurred");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <Modal
@@ -944,6 +941,10 @@ const AuthForm: React.FC<AuthFormProps> = ({ open, onClose }) => {
                   {isLoading ? <CircularProgress size={24} /> : isRegister ? "Register" : "Login"}
                 </Button>
               </Box>
+              {formError && (
+          <Alert severity="error" sx={{ textAlign: "center", mt: 2 }}>
+            {formError}
+          </Alert>)}
             </>
           )}
         </form>

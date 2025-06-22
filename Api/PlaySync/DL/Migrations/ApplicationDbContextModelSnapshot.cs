@@ -129,6 +129,9 @@ namespace DL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<bool>("Favorite")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Genre")
                         .IsRequired()
                         .HasColumnType("longtext");

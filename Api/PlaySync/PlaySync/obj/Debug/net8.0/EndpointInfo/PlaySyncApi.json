@@ -112,21 +112,6 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "isAdmin",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
           }
         ],
         "responses": {
@@ -136,21 +121,10 @@
         }
       }
     },
-    "/api/Song/user/{userId}": {
+    "/api/Song/user": {
       "get": {
         "tags": [
           "Song"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -219,6 +193,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Song/{songId}/favorit": {
+      "put": {
+        "tags": [
+          "Song"
+        ],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -532,17 +529,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/RefreshTokenRequest"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/RefreshTokenRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/RefreshTokenRequest"
               }
             }
           }
@@ -685,6 +682,15 @@
         },
         "additionalProperties": false
       },
+      "RefreshTokenRequest": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "RegisterUserDto": {
         "required": [
           "email",
@@ -737,6 +743,9 @@
           "genre": {
             "type": "string"
           },
+          "favorite": {
+            "type": "boolean"
+          },
           "userId": {
             "type": "integer",
             "format": "int32"
@@ -779,10 +788,6 @@
       "SongRequestDto": {
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "title": {
             "type": "string"
           },
@@ -791,6 +796,9 @@
           },
           "genre": {
             "type": "string"
+          },
+          "favorite": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

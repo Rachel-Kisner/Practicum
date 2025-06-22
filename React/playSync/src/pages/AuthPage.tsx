@@ -45,7 +45,7 @@ import { Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 // import {Header} from "../components/Header";
 
-export default function AuthPage() {
+export default function AuthPage({isRegister}: {isRegister: boolean}) {
   const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
   return (
@@ -74,7 +74,8 @@ export default function AuthPage() {
         {/* 🔵 קומפוננטת הטופס */}
         <AuthForm 
         open={isOpen} 
-        onClose={() => {setIsOpen(false); navigate("/")}} />
+        onClose={() => {setIsOpen(false); navigate("/")}} 
+        initialIsRegister={isRegister}/>
       </Container>
     </>
   );

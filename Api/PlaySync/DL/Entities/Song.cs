@@ -12,10 +12,11 @@ namespace DL.Entities
         public string Title { get; set; } = string.Empty;
         public string Artist { get; set; } = string.Empty;
         public string Genre { get; set; } = string.Empty;
+        public bool Favorite { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        
         public string BackupUrl { get; set; } = string.Empty;
+
         public string? BackupPublicId { get; set; }
 
         public ICollection<PlaylistSong>? PlaylistSongs { get; set; }

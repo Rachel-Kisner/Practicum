@@ -1,7 +1,8 @@
 import axios from "axios";
 import axiosClient from "./axiosClient";
+import {tokenManager} from "../utils/tokenManager";
 const API = '/User';
-const BASE_URL='https://localhost:44322/api'
+const BASE_URL = 'https://localhost:44322/api'
 
 export const loginUser = async (email: string, password: string) => {
     try {
@@ -14,15 +15,16 @@ export const loginUser = async (email: string, password: string) => {
                     'Content-Type': 'application/json'
                 }
             });
-        localStorage.setItem('accessToken', response.data.accessToken);
-        localStorage.setItem('refreshToken', response.data.refreshToken);
+        console.log(response.data.accessToken, "accessToken from loginUser");
+        console.log(response.data.refreshToken, "refreshToken from loginUser");
+        tokenManager.setAccessToken(response.data.accessToken);
+        tokenManager.setRefreshToken(response.data.refreshToken);
         console.log("Login success response:", response.data);
         return response.data;
     }
     catch (error: any) {
         if (axios.isAxiosError(error)) {
             if (error.response?.status === 401) {
-
                 throw new Error(`Email or password is incorrect`);
             }
         }
@@ -88,12 +90,16 @@ export const updateUser = async (user: { id: string; name: string; email: string
 };
 export const refreshToken = async (refreshToken: string) => {
     try {
-        const response = await axios.post(`${BASE_URL}${API}/refresh-token`, { refreshToken }, {
+        const response = await axios.post(`${BASE_URL}${API}/refresh-token`,  
+            {refreshToken} , {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        
+        const accessToken = response.data.accessToken;
+        tokenManager.setAccessToken(accessToken);
+        const newRefreshToken = response.data.refreshToken;
+        tokenManager.setRefreshToken(newRefreshToken);
         return response.data;
     } catch (error) {
         console.error("Error refreshing token:", error);
@@ -120,6 +126,7 @@ export const getCurrentUser = async () => {
         throw new Error('Failed to get current user');
     }
 };
+
 
 
 

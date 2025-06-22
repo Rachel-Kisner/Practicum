@@ -6,8 +6,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import AuthPage from "./pages/AuthPage"
 import { Layout } from "./components/Layout";
+import SongPage from "./pages/SongPage";
 
-// import Header from './components/Header'
 function App() {
 
   const navigate = useNavigate();
@@ -33,14 +33,14 @@ function App() {
     }
 
   }
-
-
+  
+  
   return (
     <Routes>
       <Route path="/" element={<Layout onNavigate={handleNavigate} />}>
-        <Route path="login" element={<AuthPage />} />
-        <Route path="register" element={<AuthPage />} />
-        {/* <Route path="/songs" element={<SongsPage />} /> */}
+        <Route path="login" element={<AuthPage isRegister />} />
+        <Route path="register" element={<AuthPage isRegister />} />
+        <Route path="/songs" element={<SongPage/>} />
         {/* <Route path="/playlist" element={<PlaylistPage />} /> */}
         {/* <Route path="/home" element={<HomePage />} /> */}
         {/* <Route path="/login" element={<LoginPage />} /> */}
@@ -48,6 +48,7 @@ function App() {
         {/* <Route path="songs" element={<SongsPage />} /> */}
       </Route>
     </Routes>
+    
   );
 }
 

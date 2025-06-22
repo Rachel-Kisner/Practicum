@@ -317,12 +317,12 @@ namespace BL
         // פונקציה חדשה לדחיסת קובץ אודיו
         private async Task<IFormFile> CompressAudioFileAsync(IFormFile file)
         {
-            const long MaxSizeBytes = 9 * 1024 * 1024; // 9MB (קצת פחות מ-10MB להיות בטוחים)
+            const long MaxSizeBytes = 30 * 1024 * 1024; // 9MB (קצת פחות מ-10MB להיות בטוחים)
 
             // אם הקובץ כבר קטן מספיק, אין צורך בדחיסה
             if (file.Length <= MaxSizeBytes)
             {
-                return file;
+                return   file;
             }
 
             string extension = Path.GetExtension(file.FileName).ToLower();
@@ -333,7 +333,7 @@ namespace BL
                 if (extension == ".mp3")
                 {
                     _logger.LogInformation($"Compressing MP3 file {file.FileName}, size: {file.Length} bytes");
-
+                    _logger.LogInformation("Compression started: " + DateTime.Now);
                     using var inputStream = file.OpenReadStream();
                     using var outputStream = new MemoryStream();
 
@@ -353,16 +353,24 @@ namespace BL
                     }
 
                     writer.Flush();
-                    outputStream.Position = 0;
+
+                    var outputBytes = outputStream.ToArray();
+                    var outputCopyStream = new MemoryStream(outputBytes);
+                    //outputStream.Position = 0;
 
                     string newFileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_compressed.mp3";
-                    var compressedFile = new FormFile(outputStream, 0, outputStream.Length, file.Name, newFileName)
+                    
+                    var compressedFile = new FormFile(outputCopyStream, 0, outputBytes.Length, "file", newFileName)
                     {
-                     
+                        Headers = new HeaderDictionary(),
                         ContentType = "audio/mpeg"
                     };
-
-                    _logger.LogInformation($"Compression complete. Original size: {file.Length}, New size: {outputStream.Length}");
+                    if (outputStream.Length == 0)
+                    {
+                        _logger.LogError("Compression failed: output stream is empty.");
+                        return file;
+                }
+                _logger.LogInformation($"Compression complete. Original size: {file.Length}, New size: {outputStream.Length}");
                     return compressedFile;
                 }
                 // דחיסת WAV ע"י המרה ל-MP3
@@ -384,15 +392,16 @@ namespace BL
                     }
 
                     writer.Flush();
-                    outputStream.Position = 0;
+                    var outputBytes = outputStream.ToArray();
+                    var outputCopyStream = new MemoryStream(outputBytes);
 
                     string newFileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}.mp3";
-                    var compressedFile = new FormFile(outputStream, 0, outputStream.Length, file.Name, newFileName)
+                    var compressedFile = new FormFile(outputCopyStream, 0, outputBytes.Length, file.Name, newFileName)
                     {
                         Headers = file.Headers,
                         ContentType = "audio/mpeg"
                     };
-
+                    _logger.LogInformation("Compression ended: " + DateTime.Now);
                     _logger.LogInformation($"Conversion complete. Original size: {file.Length}, New size: {outputStream.Length}");
                     return compressedFile;
                 }

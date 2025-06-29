@@ -223,6 +223,29 @@
         }
       }
     },
+    "/api/Song/{songId}/ringtone-ai": {
+      "post": {
+        "tags": [
+          "Song"
+        ],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/users": {
       "get": {
         "tags": [

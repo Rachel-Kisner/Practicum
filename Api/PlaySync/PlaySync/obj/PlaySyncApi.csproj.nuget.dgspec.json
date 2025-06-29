@@ -250,6 +250,10 @@
               "target": "Package",
               "version": "[1.27.4, )"
             },
+            "DtmfDetection": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.11.0, )"
@@ -271,6 +275,10 @@
             "NAudio.Lame": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "NWaves": {
+              "target": "Package",
+              "version": "[0.9.6, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",

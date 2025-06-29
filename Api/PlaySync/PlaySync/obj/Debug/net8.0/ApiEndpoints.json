@@ -98,6 +98,22 @@
   },
   {
     "ContainingType": "PlaySyncApi.Controllers.SongController",
+    "Method": "GenerateRingtoneByAI",
+    "RelativePath": "api/Song/{songId}/ringtone-ai",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "songId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PlaySyncApi.Controllers.SongController",
     "Method": "SearchSongs",
     "RelativePath": "api/Song/search",
     "HttpMethod": "GET",

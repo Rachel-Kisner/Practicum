@@ -361,3 +361,5 @@ C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NAudio.WinMM.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\DtmfDetection.dll
+C:\Users\user1\Documents\Practicum\Api\PlaySync\PlaySync\bin\Debug\net8.0\NWaves.dll

@@ -3,7 +3,7 @@ services:
     name: beat-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python beat_api.py
+    startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT beat_api:app
     plan: free
     envVars:
       - key: PORT

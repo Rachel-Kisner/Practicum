@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: beat-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python beat_api.py
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5000

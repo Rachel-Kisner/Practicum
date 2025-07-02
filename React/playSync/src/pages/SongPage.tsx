@@ -107,6 +107,16 @@ export const SongPage = () => {
     //     }
     //     setEditingSong(null);//reset the form
     // };
+    const handleGenerateAIRingtone = async (songId: number) => {
+    try {
+        await songService.ganerateAIRingtone(songId);
+        console.log(`AI Ringtone generated for song with ID: ${songId}`);
+    }
+    catch(error){
+        console.log(error);
+    }
+};
+
 
     const handleDelete = async (id: number) => {
         try {
@@ -189,6 +199,7 @@ export const SongPage = () => {
                             onEdit={(song) => setEditingSong(song)}
                             onDelete={(id) => handleDelete(id)}
                             onToggleFavorite={(id) => toggleFavorite(id)}
+                            onGenerateRingtone={(id) => handleGenerateAIRingtone(id)}
                         />
                     ))}
                 </div>

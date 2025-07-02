@@ -1,20 +1,22 @@
 import { FC } from "react";
-import { Play,Pause, Trash2, Edit2, Heart, HeartOff } from "lucide-react"; // אייקונים מודרניים
+import { Play, Pause, Trash2, Edit2, Heart, HeartOff } from "lucide-react"; // אייקונים מודרניים
 import clsx from "clsx";
 import { useSongStore } from "../stores/SongStore";
 import { Song } from "../types/Song";
 import { SongFormData } from "../types/SongFormData";
+import { SmartButton, SmartToy } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 interface SongCardProps {
     song: Song;
-    isPlaying:boolean,
+    isPlaying: boolean,
     onPlayToggle: (song: Song) => void;
     onEdit: (song: Song) => void;
     onDelete: (id: number) => void;
     onToggleFavorite: (id: number) => void;
-    // isFavorite?:boolean;
+    onGenerateRingtone: (id: number) => void;
 }
-export default function SongCard({ song,isPlaying, onPlayToggle: onPlay, onEdit, onDelete, onToggleFavorite }: SongCardProps) {
+export default function SongCard({ song, isPlaying, onPlayToggle: onPlay, onEdit, onDelete, onToggleFavorite, onGenerateRingtone }: SongCardProps) {
     return (
 
         <div className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
@@ -36,32 +38,33 @@ export default function SongCard({ song,isPlaying, onPlayToggle: onPlay, onEdit,
                     aria-label="Play"
                     className="p-2 text-blue-600 hover:bg-blue-100 rounded-xl transition-colors"
                 >
-                    {isPlaying? <Pause size={20} />:<Play size={20} />}
+                    {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                 </button>
+                <Button variant="contained" color="secondary" startIcon={<SmartToy />} onClick={() => onGenerateRingtone(song.id)}> Create AI Ringtone </Button>
                 <button
                     onClick={() => onToggleFavorite(song.id)}
                     aria-label="Favorite"
                     className={clsx("p-2 rounded-xl", {
                         "text-red-500 hover:bg-red-100": song.favorite,
                         "text-gray-400 hover:bg-gray-100": !song.favorite,
-                })}
+                    })}
                 >
-                    {song.favorite ? <Heart fill="currentColor" size={20}/> : <HeartOff size={20} />}
+                    {song.favorite ? <Heart fill="currentColor" size={20} /> : <HeartOff size={20} />}
                 </button>
-            <button
-                onClick={() => onEdit(song)}
-                aria-label="Edit"
-                className="p-2 text-yellow-600 hover:bg-yellow-100 rounded-xl transition-colors"
-            >
-                <Edit2 size={20} />
-            </button>
-            <button
-                onClick={() => onDelete(song.id)}
-                className="p-2 text-red-600 hover:bg-red-100 rounded-xl transition-colors"
-            >
-                <Trash2 size={20} />
-            </button>
-        </div>
+                <button
+                    onClick={() => onEdit(song)}
+                    aria-label="Edit"
+                    className="p-2 text-yellow-600 hover:bg-yellow-100 rounded-xl transition-colors"
+                >
+                    <Edit2 size={20} />
+                </button>
+                <button
+                    onClick={() => onDelete(song.id)}
+                    className="p-2 text-red-600 hover:bg-red-100 rounded-xl transition-colors"
+                >
+                    <Trash2 size={20} />
+                </button>
+            </div>
 
         </div >
 
@@ -85,13 +88,13 @@ export default function SongCard({ song,isPlaying, onPlayToggle: onPlay, onEdit,
 //     onToggleFavorite: (id: number) => void;
 // }
 
-// export default function SongCard({ 
-//     song, 
-//     isPlaying, 
-//     onPlayToggle: onPlay, 
-//     onEdit, 
-//     onDelete, 
-//     onToggleFavorite 
+// export default function SongCard({
+//     song,
+//     isPlaying,
+//     onPlayToggle: onPlay,
+//     onEdit,
+//     onDelete,
+//     onToggleFavorite
 // }: SongCardProps) {
 //     return (
 //         // ✨ עיצוב מודרני חדש - הוספת shadow-xl, hover:scale-[1.02], border

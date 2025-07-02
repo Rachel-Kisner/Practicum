@@ -15,6 +15,8 @@ app = Flask(__name__)
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
+    print("== Received request ==")
+    print(request.files)
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
 

@@ -182,6 +182,7 @@ namespace PlaySyncApi.Controllers
 
             using var httpClient = new HttpClient();
             using var songStream = await httpClient.GetStreamAsync(song.CloudinaryUrl);
+            Console.WriteLine("Cloudinary URL: " + song.CloudinaryUrl);
 
             using var form = new MultipartFormDataContent();
             var streamContent = new StreamContent(songStream);
@@ -189,7 +190,7 @@ namespace PlaySyncApi.Controllers
             form.Add(streamContent, "file", "song.wav");
 
             ////don't forget to change!! -after spreading in render!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            var response = await httpClient.PostAsync("http://localhost:5001/analyze", form);
+            var response = await httpClient.PostAsync("http://localhost:5000/analyze", form);
 
             if (!response.IsSuccessStatusCode)
             {
